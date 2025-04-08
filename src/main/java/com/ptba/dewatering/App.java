@@ -74,19 +74,19 @@ public class App
             // PM Frequency
             batchRead.addLocator(135, BaseLocator.holdingRegister(slaveId, 135, DataType.TWO_BYTE_INT_UNSIGNED));
             // Motor Speed Used
-            batchRead.addLocator(141, BaseLocator.holdingRegister(slaveId, 141, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
+            batchRead.addLocator(141, BaseLocator.holdingRegister(slaveId, 142, DataType.TWO_BYTE_INT_UNSIGNED));
             // Motor Speed Percent
-            batchRead.addLocator(142, BaseLocator.holdingRegister(slaveId, 142, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
+            batchRead.addLocator(142, BaseLocator.holdingRegister(slaveId, 143, DataType.TWO_BYTE_INT_UNSIGNED));
             // Output Frequency
-            batchRead.addLocator(143, BaseLocator.holdingRegister(slaveId, 143, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
+            batchRead.addLocator(143, BaseLocator.holdingRegister(slaveId, 144, DataType.TWO_BYTE_INT_UNSIGNED));
             // Motor Current
-            batchRead.addLocator(144, BaseLocator.holdingRegister(slaveId, 144, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
+            batchRead.addLocator(144, BaseLocator.holdingRegister(slaveId, 145, DataType.TWO_BYTE_INT_UNSIGNED));
             // Motor Torque
-            batchRead.addLocator(145, BaseLocator.holdingRegister(slaveId, 145, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
+            batchRead.addLocator(145, BaseLocator.holdingRegister(slaveId, 146, DataType.TWO_BYTE_INT_UNSIGNED));
             // DC Voltage
-            batchRead.addLocator(146, BaseLocator.holdingRegister(slaveId, 146, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
+            batchRead.addLocator(146, BaseLocator.holdingRegister(slaveId, 147, DataType.TWO_BYTE_INT_UNSIGNED));
             // Output Power
-            batchRead.addLocator(147, BaseLocator.holdingRegister(slaveId, 147, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
+            batchRead.addLocator(147, BaseLocator.holdingRegister(slaveId, 148, DataType.TWO_BYTE_INT_UNSIGNED));
             // Temperature
             batchRead.addLocator(701, BaseLocator.holdingRegister(slaveId, 701, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
             // SP Temperature
@@ -103,11 +103,11 @@ public class App
             batchRead.addLocator(97, BaseLocator.holdingRegister(slaveId, 97, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
             // SP OV
             batchRead.addLocator(98, BaseLocator.holdingRegister(slaveId, 98, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
-            // FM Flowrate
-            batchRead.addLocator(171, BaseLocator.holdingRegister(slaveId, 171, DataType.FOUR_BYTE_FLOAT_SWAPPED));
+            // FM Totalizer 
+            batchRead.addLocator(171, BaseLocator.holdingRegister(slaveId, 172, DataType.FOUR_BYTE_FLOAT));
             
-            // FM Totalizer
-            batchRead.addLocator(173, BaseLocator.holdingRegister(slaveId, 173, DataType.FOUR_BYTE_FLOAT_SWAPPED));
+            // FM Flowrate
+            batchRead.addLocator(173, BaseLocator.holdingRegister(slaveId, 174, DataType.FOUR_BYTE_FLOAT_SWAPPED));
 
             BatchResults<Integer> results = modbusMaster.send(batchRead);
             
@@ -151,8 +151,8 @@ public class App
             System.out.println(String.format("SP UV = %d --> %.2f", results.getIntValue(97), (float)((float)results.getIntValue(97)/(float)1)));
             System.out.println(String.format("SP OV = %d --> %.2f\n", results.getIntValue(98), (float)((float)results.getIntValue(98)/(float)1)));
 
-            System.out.println(String.format("FM Flowrate = %f --> %.2f", results.getFloatValue(171), (float)((float)results.getFloatValue(171)/(float)1)));
-            System.out.println(String.format("FM Totalizer = %f --> %.2f", results.getFloatValue(173), (float)((float)results.getFloatValue(173)/(float)1)));
+            System.out.println(String.format("FM Flowrate = %f --> %.2f", results.getFloatValue(173), (float)((float)results.getFloatValue(173)/(float)1)));
+            System.out.println(String.format("FM Totalizer = %f --> %.2f", results.getFloatValue(171), (float)((float)results.getFloatValue(171)/(float)1)));
 
         } catch (Exception e) {
             e.printStackTrace();
