@@ -1,1 +1,31 @@
+## Create maven project ##
 mvn archetype:generate -DgroupId=com.asep.demo -DartifactId=sandbox -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+## Catatan Yg Blm Solved Param Sulzer ##
+1. Main Pump
+- Wending T, terbaca 0
+- Bearing Rear, terbaca 244
+
+2. Power Meter
+- PM Freq, terbaca
+
+3. VSD
+- Motor Speed Used, terbaca 32
+- Motor Speed Percent, terbaca 128
+- Ouput Frequency, terbaca 32
+- Motor Current, terbaca 175
+- Motor Torque, terbaca 67
+- DC Voltage, terbaca 211
+- Ouput Power, terbaca 0
+
+
+4. Flow Meter 
+- Flowrate, terbaca 2785702.00 kadang 2789900.25
+- Totalizer, terbaca 0 kadang 181683.75
+
+5. Pressure Meter 
+- Pressure, terbaca 82
+
+6. Tilt Sensor
+- Tilt X, terbaca 0
+- Tilt Y, terbaca 194
