@@ -105,7 +105,6 @@ public class App
             batchRead.addLocator(98, BaseLocator.holdingRegister(slaveId, 98, DataType.ONE_BYTE_INT_UNSIGNED_LOWER));
             // FM Totalizer 
             batchRead.addLocator(171, BaseLocator.holdingRegister(slaveId, 172, DataType.FOUR_BYTE_FLOAT));
-            
             // FM Flowrate
             batchRead.addLocator(173, BaseLocator.holdingRegister(slaveId, 174, DataType.FOUR_BYTE_FLOAT_SWAPPED));
 
