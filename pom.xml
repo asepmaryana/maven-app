@@ -98,7 +98,7 @@
                       <addClasspath>true</addClasspath>
                       <classpathPrefix>libs/</classpathPrefix>
                       <mainClass>
-                          com.ptba.dewatering.sulzer.SulzerData
+                          com.ptba.dewatering.sulzer.SulzerAlarm
                       </mainClass>
                   </manifest>
               </archive>

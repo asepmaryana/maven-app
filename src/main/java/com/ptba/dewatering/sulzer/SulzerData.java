@@ -30,15 +30,17 @@ public class SulzerData {
         modbusMaster.setRetries(1);
 
         BatchRead<Integer> batchRead = new BatchRead<Integer>();
-        batchRead.addLocator(121, BaseLocator.holdingRegister(slaveId, 121, DataType.TWO_BYTE_INT_SIGNED));
-        batchRead.addLocator(123, BaseLocator.holdingRegister(slaveId, 123, DataType.TWO_BYTE_INT_SIGNED));
-        batchRead.addLocator(125, BaseLocator.holdingRegister(slaveId, 125, DataType.TWO_BYTE_INT_SIGNED));
-        batchRead.addLocator(127, BaseLocator.holdingRegister(slaveId, 127, DataType.TWO_BYTE_INT_SIGNED));
-        batchRead.addLocator(129, BaseLocator.holdingRegister(slaveId, 129, DataType.TWO_BYTE_INT_SIGNED));
-        batchRead.addLocator(131, BaseLocator.holdingRegister(slaveId, 131, DataType.TWO_BYTE_INT_SIGNED));
-        batchRead.addLocator(133, BaseLocator.holdingRegister(slaveId, 133, DataType.TWO_BYTE_INT_SIGNED));
+        batchRead.addLocator(121, BaseLocator.holdingRegister(slaveId, 121, DataType.TWO_BYTE_INT_UNSIGNED));
+        batchRead.addLocator(123, BaseLocator.holdingRegister(slaveId, 123, DataType.TWO_BYTE_INT_UNSIGNED));
+        batchRead.addLocator(125, BaseLocator.holdingRegister(slaveId, 125, DataType.TWO_BYTE_INT_UNSIGNED));
+        batchRead.addLocator(127, BaseLocator.holdingRegister(slaveId, 127, DataType.TWO_BYTE_INT_UNSIGNED));
+        batchRead.addLocator(129, BaseLocator.holdingRegister(slaveId, 129, DataType.TWO_BYTE_INT_UNSIGNED));
+        batchRead.addLocator(131, BaseLocator.holdingRegister(slaveId, 131, DataType.TWO_BYTE_INT_UNSIGNED));
+        batchRead.addLocator(133, BaseLocator.holdingRegister(slaveId, 132, DataType.FOUR_BYTE_INT_SIGNED));
         batchRead.addLocator(134, BaseLocator.holdingRegister(slaveId, 134, DataType.TWO_BYTE_INT_SIGNED));
 
+        batchRead.addLocator(101, BaseLocator.holdingRegister(slaveId, 100, DataType.TWO_BYTE_INT_SIGNED));
+        batchRead.addLocator(102, BaseLocator.holdingRegister(slaveId, 101, DataType.TWO_BYTE_INT_SIGNED));
         batchRead.addLocator(107, BaseLocator.holdingRegister(slaveId, 107, DataType.TWO_BYTE_INT_SIGNED));
         batchRead.addLocator(108, BaseLocator.holdingRegister(slaveId, 108, DataType.TWO_BYTE_INT_SIGNED));
         batchRead.addLocator(109, BaseLocator.holdingRegister(slaveId, 109, DataType.TWO_BYTE_INT_SIGNED));
@@ -52,7 +54,7 @@ public class SulzerData {
         batchRead.addLocator(146, BaseLocator.holdingRegister(slaveId, 146, DataType.TWO_BYTE_INT_SIGNED));
 
         batchRead.addLocator(171, BaseLocator.holdingRegister(slaveId, 172, DataType.FOUR_BYTE_FLOAT));
-        batchRead.addLocator(173, BaseLocator.holdingRegister(slaveId, 174, DataType.FOUR_BYTE_FLOAT_SWAPPED));
+        batchRead.addLocator(174, BaseLocator.holdingRegister(slaveId, 174, DataType.FOUR_BYTE_FLOAT_SWAPPED));
 
         batchRead.addLocator(113, BaseLocator.holdingRegister(slaveId, 113, DataType.TWO_BYTE_INT_SIGNED));
         batchRead.addLocator(114, BaseLocator.holdingRegister(slaveId, 114, DataType.TWO_BYTE_INT_SIGNED));
@@ -77,13 +79,13 @@ public class SulzerData {
                 System.out.println("-------------------------------------");
                 System.out.println("          Power Motor                ");
                 System.out.println("-------------------------------------");
-                System.out.println(String.format("Voltage R = %d --> %.2f V", results.getValue(121), (((Short)results.getValue(121)).floatValue()/(float)10)));
-                System.out.println(String.format("Voltage S = %d --> %.2f V", results.getValue(123), (((Short)results.getValue(123)).floatValue()/(float)10)));
-                System.out.println(String.format("Voltage T = %d --> %.2f V\n", results.getValue(125), (((Short)results.getValue(125)).floatValue()/(float)10)));
-                System.out.println(String.format("Current R = %d --> %.2f A", results.getValue(127), (((Short)results.getValue(127)).floatValue()/(float)100)));
-                System.out.println(String.format("Current S = %d --> %.2f A", results.getValue(129), (((Short)results.getValue(129)).floatValue()/(float)100)));
-                System.out.println(String.format("Current T = %d --> %.2f A\n", results.getValue(131), (((Short)results.getValue(131)).floatValue()/(float)100)));
-                System.out.println(String.format("Power Total = %d --> %.3f kW", results.getValue(133), (((Short)results.getValue(133)).floatValue()/(float)1000)));
+                System.out.println(String.format("Voltage R = %d --> %.2f V", results.getValue(121), (((Integer)results.getValue(121)).floatValue()/(float)10)));
+                System.out.println(String.format("Voltage S = %d --> %.2f V", results.getValue(123), (((Integer)results.getValue(123)).floatValue()/(float)10)));
+                System.out.println(String.format("Voltage T = %d --> %.2f V\n", results.getValue(125), (((Integer)results.getValue(125)).floatValue()/(float)10)));
+                System.out.println(String.format("Current R = %d --> %.2f A", results.getValue(127), (((Integer)results.getValue(127)).floatValue()/(float)100)));
+                System.out.println(String.format("Current S = %d --> %.2f A", results.getValue(129), (((Integer)results.getValue(129)).floatValue()/(float)100)));
+                System.out.println(String.format("Current T = %d --> %.2f A\n", results.getValue(131), (((Integer)results.getValue(131)).floatValue()/(float)100)));
+                System.out.println(String.format("Act Power Total = %d --> %.3f kW", results.getValue(133), (((Integer)results.getValue(133)).floatValue()/(float)1000)));
                 System.out.println(String.format("Frequency = %s --> %.2f Hz", results.getValue(134), (((Short)results.getValue(134)).floatValue()/(float)100)));
 
                 System.out.println("-------------------------------------");
@@ -92,21 +94,23 @@ public class SulzerData {
                 System.out.println(String.format("Winding R = %d --> %.2f C", results.getValue(107), (((Short)results.getValue(107)).floatValue()/(float)1)));
                 System.out.println(String.format("Winding S = %d --> %.2f C", results.getValue(108), (((Short)results.getValue(108)).floatValue()/(float)1)));
                 System.out.println(String.format("Winding T = %d --> %.2f C", results.getValue(109), (((Short)results.getValue(109)).floatValue()/(float)1)));
+                System.out.println(String.format("Bearing Front = %d --> %.2f C", results.getValue(101), (((Short)results.getValue(101)).floatValue()/(float)1)));
+                System.out.println(String.format("Bearing Rear = %d --> %.2f C", results.getValue(102), (((Short)results.getValue(102)).floatValue()/(float)1)));
 
                 System.out.println("-------------------------------------");
                 System.out.println("            Flow Meter               ");
                 System.out.println("-------------------------------------");
-                System.out.println(String.format("Flowrate = %f --> %.3f m3/H", results.getValue(173), (((Float)results.getValue(173)).floatValue()/(float)1)));
+                System.out.println(String.format("Flowrate = %f --> %.3f m3/H", results.getValue(174), (((Float)results.getValue(174)).floatValue()/(float)1)));
                 System.out.println(String.format("Totalizer = %f --> %.3f m3", results.getValue(171), (((Float)results.getValue(171)).floatValue()/(float)1)));
 
                 System.out.println("-------------------------------------");
                 System.out.println("            VSD Monitoring           ");
                 System.out.println("-------------------------------------");
-                System.out.println(String.format("Motor Speed Used = %d --> %.2f Rpm", results.getValue(140), (((Short)results.getValue(140)).floatValue()/(float)10)));
+                System.out.println(String.format("Motor Speed Used = %d --> %.2f Rpm", results.getValue(140), (((Short)results.getValue(140)).floatValue()/(float)10))); // pake formula
                 System.out.println(String.format("Motor Speed Perc = %d --> %.2f", results.getValue(141), (((Short)results.getValue(141)).floatValue()/(float)10)));
-                System.out.println(String.format("Output Frequency = %d --> %.2f Hz", results.getValue(142), (((Short)results.getValue(142)).floatValue()/(float)10)));
+                System.out.println(String.format("Output Frequency = %d --> %.2f Hz", results.getValue(142), (((Short)results.getValue(142)).floatValue()/(float)10))); // pake formula
                 System.out.println(String.format("Motor Current = %d --> %.2f A", results.getValue(143), (((Short)results.getValue(143)).floatValue()/(float)10)));
-                System.out.println(String.format("Motor Torque = %d --> %.2f", results.getValue(144), (((Short)results.getValue(144)).floatValue()/(float)10)));
+                System.out.println(String.format("Motor Torque = %d --> %.2f", results.getValue(144), (((Short)results.getValue(144)).floatValue()/(float)100)));
                 System.out.println(String.format("DC Voltage = %d --> %.2f V", results.getValue(145), (((Short)results.getValue(145)).floatValue()/(float)10)));
                 System.out.println(String.format("Output Power = %d --> %.2f kW", results.getValue(146), (((Short)results.getValue(146)).floatValue()/(float)10)));
 
