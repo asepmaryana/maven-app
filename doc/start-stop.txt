@@ -1,0 +1,17 @@
+Start Procedures:
+-----------------
+1. Set Start Auto (CMD_AUTO_SCADA) to true..kemudian dalam 2-3 detik set false 
+2. Set Vacumm Pump (CMD_SCADA_Vacumm_Pump) to true .. kemudian dlam 2-3 detik set false 
+3. Tunggu high level max 10 menit 
+4. Ketika "HH_Vacumm_Tank" sudah true.. kemudian "CLO_MAIN_PUMP_ON" set true 
+
+Stop Procedures:
+----------------
+1. Pulse CMD_SCADA_OFF_MAIN_PUMP set true..kemudian dalam 1-2 detik set false 
+
+
+Addressing List:
+---------------
+CMD_AUTO_SCADA = 21.0 (20.0)
+CMD_SCADA_Vacumm_Pump = 21.1 (20.0)
+CMD_SCADA_OFF_MAIN_PUMP = 22.11 (21.11)
