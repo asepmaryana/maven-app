@@ -98,7 +98,7 @@
                       <addClasspath>true</addClasspath>
                       <classpathPrefix>libs/</classpathPrefix>
                       <mainClass>
-                          com.ptba.dewatering.Main
+                          com.ptba.rmu.RmuPmData
                       </mainClass>
                   </manifest>
               </archive>
